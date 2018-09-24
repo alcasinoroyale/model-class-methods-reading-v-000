@@ -9,10 +9,7 @@ class PostsController < ApplicationController
         @posts = Post.from_today
       else
         @posts = Post.old_news
-        @posts = Post.where("created_at >=?", Time.zone.today.beginning_of_day)
-      else
-        @posts = Post.where("created_at <?", Time.zone.today.beginning_of_day)
-    end
+      end
   else
     @posts = Post.all
     end
