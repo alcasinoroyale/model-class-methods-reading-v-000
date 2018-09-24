@@ -7,7 +7,8 @@ class PostsController < ApplicationController
     elsif !params[:date].blank?
       if params[:date] == "Today"
         @posts = Post.from_today
-        
+      else
+        @posts = Post.old_news
         @posts = Post.where("created_at >=?", Time.zone.today.beginning_of_day)
       else
         @posts = Post.where("created_at <?", Time.zone.today.beginning_of_day)
