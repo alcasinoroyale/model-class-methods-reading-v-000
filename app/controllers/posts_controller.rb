@@ -10,8 +10,8 @@ class PostsController < ApplicationController
       else
         @posts = Post.old_news
       end
-  else
-    @posts = Post.all
+    else
+      @posts = Post.all
     end
   end
 
