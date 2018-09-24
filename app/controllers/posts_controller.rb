@@ -6,6 +6,8 @@ class PostsController < ApplicationController
       @posts = Post.where(author: params[:author])
     elsif !params[:date].blank?
       if params[:date] == "Today"
+        @posts = Post.from_today
+        
         @posts = Post.where("created_at >=?", Time.zone.today.beginning_of_day)
       else
         @posts = Post.where("created_at <?", Time.zone.today.beginning_of_day)
